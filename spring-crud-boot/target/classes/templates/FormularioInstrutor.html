@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<form action="/instrutor/salvar" method="POST" th:object="${instrutor}">
+    <input type="hidden" th:field="*{id}">
+
+    Nome: <input type="text" th:field="*{name}"> <br>
+    Matricula: <input type="number" th:field="*{matricula}">
+    Curso:  <input  type="text" th:field="*{curso}">
+    Instituição:  <input  type="text" th:field="*{instituicao}">
+    <br>
+
+    <input type="submit" value="Cadastrar">
+
+</form>
+
+</body>
+</html>

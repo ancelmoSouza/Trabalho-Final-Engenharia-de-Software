@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<form action="/piloto/salvar" method="POST" th:object="${piloto}">
+    <input type="hidden" th:field="*{id}">
+
+    Nome: <input type="text" th:field="*{nome}"> <br>
+    Número de Beve: <input type="number" th:field="*{breve}">
+
+    <br>
+
+    <input type="submit" value="Cadastrar">
+
+</form>
+
+</body>
+</html>
