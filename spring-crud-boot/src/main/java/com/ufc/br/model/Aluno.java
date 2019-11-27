@@ -12,11 +12,11 @@ public class Aluno {
     private Long matricula;
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "turmas_aluno",
                joinColumns = {@JoinColumn(name = "id_turma")},
                inverseJoinColumns = {@JoinColumn(name = "id_aluno")})
@@ -57,5 +57,21 @@ public class Aluno {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(List<Turma> turmas) {
+        this.turmas = turmas;
     }
 }

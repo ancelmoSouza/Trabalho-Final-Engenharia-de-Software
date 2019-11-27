@@ -25,6 +25,10 @@ public class InstrutorService {
         return instrutorRepository.getOne(id);
     }
 
+    public Instrutor findByMatricula(Long matricula){
+        return instrutorRepository.findByMatricula(matricula);
+    }
+
     public void delete(Long id){
         this.instrutorRepository.deleteById(id);
     }

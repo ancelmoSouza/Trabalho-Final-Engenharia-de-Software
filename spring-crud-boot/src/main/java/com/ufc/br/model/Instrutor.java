@@ -28,7 +28,6 @@ public class Instrutor {
 
     @OneToMany(mappedBy = "instrutor", fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Turma> turmas;
 
     // ----------------------------------- Construtor, Getter's e Setter's -------------------------- //

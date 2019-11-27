@@ -25,6 +25,10 @@ public class PilotoService {
         return this.pilotoRepository.getOne(id);
     }
 
+    public Piloto findByBreve(Long breve){
+        return this.pilotoRepository.findByBreve(breve);
+    }
+
     public void delete(Long id){
         this.pilotoRepository.deleteById(id);
     }

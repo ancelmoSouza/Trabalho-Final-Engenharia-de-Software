@@ -7,4 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Repository
 public interface InstrutorRepository extends JpaRepository<Instrutor, Long> {
+    //Spring Data
+    Instrutor findByMatricula(Long matricula);
 }

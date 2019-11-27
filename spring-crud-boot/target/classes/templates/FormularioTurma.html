@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<form action="/turma/salvar" method="POST" th:object="${turma}">
+    <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{currentAlunos}">
+
+    Capacidade Máxima : <input type="number" th:field="*{qtdMax}">
+    Matricula Instrutor: <input type="number" th:field="*{instrutor.matricula}">
+    Matricula Piloto: <input type="number" th:field="*{piloto.breve}">
+
+
+
+    <br>
+
+    <input type="submit" value="Cadastrar">
+
+</form>
+
+</body>
+</html>

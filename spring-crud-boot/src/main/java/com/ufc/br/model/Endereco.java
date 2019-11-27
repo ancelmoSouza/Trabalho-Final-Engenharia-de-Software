@@ -21,7 +21,6 @@ public class Endereco {
 
     @OneToMany(mappedBy = "endereco", fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Aluno> alunos;
 
 
