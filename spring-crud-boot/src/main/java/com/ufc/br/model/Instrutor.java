@@ -9,14 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Instrutor {
+public class Instrutor extends User {
 
     // ---------------------------------------- Dados pessoais ---------------------------------- //
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private Long matricula;
-    private String name;
 
 
     // ----------------------------------------- Dados específicos -------------------------------- //
@@ -31,23 +27,24 @@ public class Instrutor {
     private List<Turma> turmas;
 
     // ----------------------------------- Construtor, Getter's e Setter's -------------------------- //
-    public Instrutor(){}
 
-    public Instrutor(Long matricula, String name, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
+    public Instrutor(){};
+
+    public Instrutor(Long matricula, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
         this.matricula = matricula;
-        this.name = name;
         this.curso = curso;
         this.instituicao = instituicao;
         this.dataObtencao = dataObtencao;
         this.turmas = turmas;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Instrutor(String papel, String password, String nome, Long matricula, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
+        super(papel, password, nome);
+        this.matricula = matricula;
+        this.curso = curso;
+        this.instituicao = instituicao;
+        this.dataObtencao = dataObtencao;
+        this.turmas = turmas;
     }
 
     public Long getMatricula() {
@@ -56,14 +53,6 @@ public class Instrutor {
 
     public void setMatricula(Long matricula) {
         this.matricula = matricula;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCurso() {
@@ -80,5 +69,21 @@ public class Instrutor {
 
     public void setInstituicao(String instituicao) {
         this.instituicao = instituicao;
+    }
+
+    public Date getDataObtencao() {
+        return dataObtencao;
+    }
+
+    public void setDataObtencao(Date dataObtencao) {
+        this.dataObtencao = dataObtencao;
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(List<Turma> turmas) {
+        this.turmas = turmas;
     }
 }

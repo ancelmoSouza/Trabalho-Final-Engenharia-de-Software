@@ -4,6 +4,7 @@ import com.ufc.br.model.Turma;
 import com.ufc.br.repository.TurmaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -13,8 +14,10 @@ public class TurmaService {
     @Autowired
     private TurmaRepository turmaRepository;
 
-    public void save(Turma turma){
+    public void save(Turma turma, MultipartFile image){
         this.turmaRepository.save(turma);
+
+        String caminho = "src/main/resources/static/images/" + turma.getNome() + ".png";
     }
 
     public List<Turma> listarTurmas(){

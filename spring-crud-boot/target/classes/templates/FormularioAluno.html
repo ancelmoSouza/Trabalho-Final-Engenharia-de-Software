@@ -6,10 +6,10 @@
 </head>
 <body>
 
-<form action="/main/salvar" method="POST" th:object="${aluno}">
+<form action="/main/salvar" method="POST" th:object="${aluno}" >
     <input type="hidden" th:field="*{id}">
 
-    Nome: <input type="text" th:field="*{name}"> <br>
+    Nome: <input type="text" th:field="*{nome}"> <br>
     Matricula: <input type="number" th:field="*{matricula}">
     <br>
 

@@ -12,6 +12,8 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nome;
+
     private int qtdMax; // Capacidade máxima de alunos da turma;
     private int currentAlunos = 0; // Alunos matriculados efetivamente
 
@@ -39,13 +41,14 @@ public class Turma {
         this.status = false;
     }
 
-    public Turma(int qtdMax, int currentAlunos, Boolean status, Instrutor instrutor, Piloto piloto, List<Aluno> alunos) {
+    public Turma(int qtdMax, int currentAlunos, Boolean status, Instrutor instrutor, Piloto piloto, List<Aluno> alunos, String nome) {
         this.qtdMax = qtdMax;
         this.currentAlunos = currentAlunos;
         this.status = status;
         this.instrutor = instrutor;
         this.piloto = piloto;
         this.alunos = alunos;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -110,5 +113,13 @@ public class Turma {
 
     public void setSemestre(String semestre) {
         this.semestre = semestre;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

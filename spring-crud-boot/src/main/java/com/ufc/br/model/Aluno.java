@@ -4,13 +4,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Aluno {
+public class Aluno extends User{
     //Teste commit e push
     //------------------------------- Dados Pessoais -----------------------------------------//
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private Long matricula;
-    private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_endereco")
@@ -22,25 +19,21 @@ public class Aluno {
                inverseJoinColumns = {@JoinColumn(name = "id_aluno")})
     private List<Turma> turmas;
 
-
-
     // ---------------------------------- Construtor e Getter's e setter's -------------------//
 
     public Aluno(){}
 
-    public Aluno(Long matricula, String name, Endereco endereco, List<Turma> turmas) {
+    public Aluno(Long matricula, Endereco endereco, List<Turma> turmas) {
         this.matricula = matricula;
-        this.name = name;
         this.endereco = endereco;
         this.turmas = turmas;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Aluno(String papel, String password, String nome, Long matricula, Endereco endereco, List<Turma> turmas) {
+        super(papel, password, nome);
+        this.matricula = matricula;
+        this.endereco = endereco;
+        this.turmas = turmas;
     }
 
     public Long getMatricula() {
@@ -49,14 +42,6 @@ public class Aluno {
 
     public void setMatricula(Long matricula) {
         this.matricula = matricula;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Endereco getEndereco() {

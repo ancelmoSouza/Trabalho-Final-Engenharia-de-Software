@@ -9,6 +9,8 @@ import com.ufc.br.service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -41,12 +43,12 @@ public class TurmaController {
     }
 
     @RequestMapping("/salvar")
-    public String salavr(Turma turma){
+    public String salavr(Turma turma, @RequestParam(value = "image") MultipartFile image){
         turma.setPiloto(this.pilotoServeice.findByBreve(turma.getPiloto().getBreve()));
         turma.setInstrutor(this.instrutorService.findByMatricula(turma.getInstrutor().getMatricula()));
         turma.setStatus(true);
 
-        this.turmaService.save(turma);
+        this.turmaService.save(turma, image);
 
         return "OlaMundo";
     }

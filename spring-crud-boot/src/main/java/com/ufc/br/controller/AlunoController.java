@@ -2,11 +2,14 @@ package com.ufc.br.controller;
 
 import com.ufc.br.model.Aluno;
 import com.ufc.br.model.Endereco;
+import com.ufc.br.model.Turma;
 import com.ufc.br.service.AlunoService;
 import com.ufc.br.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,8 +36,9 @@ public class AlunoController {
     }
 
     @RequestMapping("/salvar")
-    public String salvar(Aluno aluno){
-        alunoService.save(aluno);
+    public String salvar(Aluno aluno, @RequestParam(value = "image") MultipartFile image){
+        alunoService.save(aluno, image);
+
         return "OlaMundo";
     }
 

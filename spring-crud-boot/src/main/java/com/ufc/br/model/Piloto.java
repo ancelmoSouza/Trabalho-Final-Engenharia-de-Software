@@ -8,15 +8,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Piloto {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Piloto extends User{
 
     // ------------------------------------ Dados Pessoais ------------------------------------ //
 
-    private String nome;
     private Long breve;
 
     @OneToMany(mappedBy = "piloto", fetch = FetchType.EAGER)
@@ -24,28 +19,18 @@ public class Piloto {
     private List<Turma> turmas;
 
     // ------------------------------ Construtor, Getter's e Setter's ------------------------- //
+
     public Piloto(){}
 
-    public Piloto(String nome, Long breve, List<Turma> turmas) {
-        this.nome = nome;
+    public Piloto(Long breve, List<Turma> turmas) {
         this.breve = breve;
         this.turmas = turmas;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Piloto(String papel, String password, String nome, Long breve, List<Turma> turmas) {
+        super(papel, password, nome);
+        this.breve = breve;
+        this.turmas = turmas;
     }
 
     public Long getBreve() {
@@ -54,5 +39,13 @@ public class Piloto {
 
     public void setBreve(Long breve) {
         this.breve = breve;
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(List<Turma> turmas) {
+        this.turmas = turmas;
     }
 }

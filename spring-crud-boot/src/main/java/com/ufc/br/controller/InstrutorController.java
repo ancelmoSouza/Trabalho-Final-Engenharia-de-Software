@@ -23,7 +23,8 @@ public class InstrutorController {
     }
 
     @RequestMapping("/salvar")
-    public String slavar(Instrutor instrutor){
+    public String salvar(Instrutor instrutor){
+        instrutor.setPapel("user_default");
         this.instrutorService.save(instrutor);
 
         return "OlaMundo";
