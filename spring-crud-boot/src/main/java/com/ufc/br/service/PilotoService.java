@@ -25,8 +25,8 @@ public class PilotoService {
         return this.pilotoRepository.getOne(id);
     }
 
-    public Piloto findByBreve(Long breve){
-        return this.pilotoRepository.findByBreve(breve);
+    public Piloto findByBreve(String login){
+        return this.pilotoRepository.findByLogin(login);
     }
 
     public void delete(Long id){

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col">Código</th>
+        <th scope="col"> Nome </th>
+        <th scope="col"> Instrutor </th>
+        <th scope="col"> Piloto </th>
+        <th scope="col"> Cap. Máxima </th>
+        <th scope="col"> Semestre </th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="turma : ${listaDeTurmas}">
+        <td></td>
+        <td th:text="${turma.id}"></td>
+        <td th:text="${turma.nome}"></td>
+        <td th:text="${turma.instrutor.nome}"></td>
+        <td th:text="${turma.piloto.nome}"></td>
+        <td th:text="${turma.qtdMax}"></td>
+        <td th:text="${turma.semestre}"></td>
+        <td th:text="${session.user.id}"> </td>
+
+        <td>    <a th:href="@{/turma/concluir/{id}(id = ${turma.id})}">
+            <button type="button" class="btn btn-danger">Realizar Matricula</button>
+        </a>
+       </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

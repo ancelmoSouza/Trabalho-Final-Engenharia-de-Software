@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<form action="/instrutor/salvar" method="POST" th:object="${instrutor}">
+<form action="/instrutor/salvar" method="POST" th:object="${instrutor}" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}">
 
     Nome: <input type="text" th:field="*{nome}"> <br>
-    Matricula: <input type="number" th:field="*{matricula}">
+    Matricula: <input type="text" th:field="*{login}">
     Curso:  <input  type="text" th:field="*{curso}">
     Instituição:  <input  type="text" th:field="*{instituicao}">
     Data de Obtenção: <input type="text" placeholder="dd/mm/aaaa" th:field="*{dataObtencao}">
-    Senha: <input type="password" placeholder="digite sua senha" th:fied="*{password}">
+    Senha: <input type="password" th:field="*{password}">
 
     <br>
 

@@ -17,7 +17,7 @@ public class Turma {
     private int qtdMax; // Capacidade máxima de alunos da turma;
     private int currentAlunos = 0; // Alunos matriculados efetivamente
 
-    private Boolean status;
+    private boolean status;
 
     private String semestre;
 
@@ -41,14 +41,15 @@ public class Turma {
         this.status = false;
     }
 
-    public Turma(int qtdMax, int currentAlunos, Boolean status, Instrutor instrutor, Piloto piloto, List<Aluno> alunos, String nome) {
+    public Turma(String nome, int qtdMax, int currentAlunos, boolean status, String semestre, Instrutor instrutor, Piloto piloto, List<Aluno> alunos) {
+        this.nome = nome;
         this.qtdMax = qtdMax;
         this.currentAlunos = currentAlunos;
         this.status = status;
+        this.semestre = semestre;
         this.instrutor = instrutor;
         this.piloto = piloto;
         this.alunos = alunos;
-        this.nome = nome;
     }
 
     public Long getId() {
@@ -57,6 +58,14 @@ public class Turma {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getQtdMax() {
@@ -75,6 +84,22 @@ public class Turma {
         this.currentAlunos = currentAlunos;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
+
     public Instrutor getInstrutor() {
         return instrutor;
     }
@@ -91,35 +116,11 @@ public class Turma {
         this.piloto = piloto;
     }
 
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
     public List<Aluno> getAlunos() {
         return alunos;
     }
 
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
-    }
-
-    public String getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 }

@@ -14,10 +14,10 @@ public class AlunoService {
     @Autowired
     private AlunoRepository alunoRepository;
 
-    public void save(Aluno aluno, MultipartFile image){
+    public void save(Aluno aluno/*, MultipartFile image*/){
         alunoRepository.save(aluno);
 
-        String caminho = "src/main/resources/static/images/" + aluno.getNome() + ".png";
+      //  String caminho = "src/main/resources/static/images/" + aluno.getNome() + ".png";
     }
 
     public List<Aluno> listarAlunos(){
@@ -28,10 +28,12 @@ public class AlunoService {
         return alunoRepository.getOne(id);
     }
 
+    public Aluno findByLogin(String login){
+        return alunoRepository.findByLogin(login);
+    }
+
     public void delete(Long id){
         alunoRepository.deleteById(id);
     }
-
-
 
 }

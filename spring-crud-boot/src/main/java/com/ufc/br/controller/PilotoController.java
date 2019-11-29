@@ -24,7 +24,7 @@ public class PilotoController {
 
     @RequestMapping("/salvar")
     public String salvar(Piloto piloto){
-        this.pilotoService.save(piloto);
+        pilotoService.save(piloto);
 
         return "OlaMundo";
     }

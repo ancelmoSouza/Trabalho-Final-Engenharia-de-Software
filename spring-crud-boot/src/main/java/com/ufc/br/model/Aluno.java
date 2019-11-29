@@ -6,8 +6,7 @@ import java.util.List;
 @Entity
 public class Aluno extends User{
     //Teste commit e push
-    //------------------------------- Dados Pessoais -----------------------------------------//
-    private Long matricula;
+    //------------------------------- Dados Pessoais ----------------------------------------//
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_endereco")
@@ -21,27 +20,14 @@ public class Aluno extends User{
 
     // ---------------------------------- Construtor e Getter's e setter's -------------------//
 
-    public Aluno(){}
+    public Aluno(){
+        super();
+    }
 
-    public Aluno(Long matricula, Endereco endereco, List<Turma> turmas) {
-        this.matricula = matricula;
+    public Aluno(String password, String nome, String login, Endereco endereco, List<Turma> turmas) {
+        super(password, nome, login);
         this.endereco = endereco;
         this.turmas = turmas;
-    }
-
-    public Aluno(String papel, String password, String nome, Long matricula, Endereco endereco, List<Turma> turmas) {
-        super(papel, password, nome);
-        this.matricula = matricula;
-        this.endereco = endereco;
-        this.turmas = turmas;
-    }
-
-    public Long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Long matricula) {
-        this.matricula = matricula;
     }
 
     public Endereco getEndereco() {

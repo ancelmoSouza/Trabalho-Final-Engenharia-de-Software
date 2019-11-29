@@ -14,10 +14,10 @@ public class TurmaService {
     @Autowired
     private TurmaRepository turmaRepository;
 
-    public void save(Turma turma, MultipartFile image){
+    public void save(Turma turma){
         this.turmaRepository.save(turma);
 
-        String caminho = "src/main/resources/static/images/" + turma.getNome() + ".png";
+        //String caminho = "src/main/resources/static/images/" + turma.getNome() + ".png";
     }
 
     public List<Turma> listarTurmas(){

@@ -11,9 +11,6 @@ import java.util.List;
 @Entity
 public class Instrutor extends User {
 
-    // ---------------------------------------- Dados pessoais ---------------------------------- //
-    private Long matricula;
-
 
     // ----------------------------------------- Dados específicos -------------------------------- //
     private String curso;
@@ -30,29 +27,19 @@ public class Instrutor extends User {
 
     public Instrutor(){};
 
-    public Instrutor(Long matricula, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
-        this.matricula = matricula;
+    public Instrutor(String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
         this.curso = curso;
         this.instituicao = instituicao;
         this.dataObtencao = dataObtencao;
         this.turmas = turmas;
     }
 
-    public Instrutor(String papel, String password, String nome, Long matricula, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
-        super(papel, password, nome);
-        this.matricula = matricula;
+    public Instrutor(String password, String nome, String login, String curso, String instituicao, Date dataObtencao, List<Turma> turmas) {
+        super(password, nome, login);
         this.curso = curso;
         this.instituicao = instituicao;
         this.dataObtencao = dataObtencao;
         this.turmas = turmas;
-    }
-
-    public Long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Long matricula) {
-        this.matricula = matricula;
     }
 
     public String getCurso() {

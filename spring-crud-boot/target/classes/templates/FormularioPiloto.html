@@ -6,11 +6,12 @@
 </head>
 <body>
 
-<form action="/piloto/salvar" method="POST" th:object="${piloto}">
+<form action="/piloto/salvar" method="POST" th:object="${piloto}" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}">
 
     Nome: <input type="text" th:field="*{nome}"> <br>
-    Número de Beve: <input type="number" th:field="*{breve}">
+    Número de Beve: <input type="number" th:field="*{login}"> <br>
+    Senha: <input type="password" th:field="*{password}">
 
     <br>
 

@@ -36,8 +36,9 @@ public class AlunoController {
     }
 
     @RequestMapping("/salvar")
-    public String salvar(Aluno aluno, @RequestParam(value = "image") MultipartFile image){
-        alunoService.save(aluno, image);
+    public String salvar(Aluno aluno/*@RequestParam(value = "image") MultipartFile image*/){
+
+        alunoService.save(aluno);
 
         return "OlaMundo";
     }

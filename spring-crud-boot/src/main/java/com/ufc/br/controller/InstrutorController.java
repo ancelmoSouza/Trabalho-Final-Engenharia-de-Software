@@ -25,7 +25,7 @@ public class InstrutorController {
     @RequestMapping("/salvar")
     public String salvar(Instrutor instrutor){
         instrutor.setPapel("user_default");
-        this.instrutorService.save(instrutor);
+        instrutorService.save(instrutor);
 
         return "OlaMundo";
     }

@@ -6,12 +6,12 @@
 </head>
 <body>
 
-<form action="/main/salvar" method="POST" th:object="${aluno}" enctype="multipart/form-data" >
+<form action="/aluno/salvar" method="POST" th:object="${aluno}" enctype="multipart/form-data" >
     <input type="hidden" th:field="*{id}">
 
     Nome: <input type="text" th:field="*{nome}"> <br>
-    Matricula: <input type="number" th:field="*{matricula}"> <br>
-    Imagem: <input type="file" name="image">
+    Matricula: <input type="text" th:field="*{login}"> <br>
+    Senha <input type="password" th:field="*{password}">
     <br>
 
     <input type="submit" value="Cadastrar">

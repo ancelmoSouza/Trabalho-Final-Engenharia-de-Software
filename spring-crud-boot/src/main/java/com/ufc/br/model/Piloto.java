@@ -12,8 +12,6 @@ public class Piloto extends User{
 
     // ------------------------------------ Dados Pessoais ------------------------------------ //
 
-    private Long breve;
-
     @OneToMany(mappedBy = "piloto", fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
     private List<Turma> turmas;
@@ -22,23 +20,13 @@ public class Piloto extends User{
 
     public Piloto(){}
 
-    public Piloto(Long breve, List<Turma> turmas) {
-        this.breve = breve;
+    public Piloto(List<Turma> turmas) {
         this.turmas = turmas;
     }
 
-    public Piloto(String papel, String password, String nome, Long breve, List<Turma> turmas) {
-        super(papel, password, nome);
-        this.breve = breve;
+    public Piloto(String password, String nome, String login, List<Turma> turmas) {
+        super(password, nome, login);
         this.turmas = turmas;
-    }
-
-    public Long getBreve() {
-        return breve;
-    }
-
-    public void setBreve(Long breve) {
-        this.breve = breve;
     }
 
     public List<Turma> getTurmas() {

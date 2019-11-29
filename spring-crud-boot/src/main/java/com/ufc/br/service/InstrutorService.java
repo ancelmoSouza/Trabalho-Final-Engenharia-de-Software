@@ -25,8 +25,8 @@ public class InstrutorService {
         return instrutorRepository.getOne(id);
     }
 
-    public Instrutor findByMatricula(Long matricula){
-        return instrutorRepository.findByMatricula(matricula);
+    public Instrutor findByLogin(String login){
+        return instrutorRepository.findByLogin(login);
     }
 
     public void delete(Long id){
