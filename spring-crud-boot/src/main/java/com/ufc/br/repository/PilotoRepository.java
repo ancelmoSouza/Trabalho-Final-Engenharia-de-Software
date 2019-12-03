@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PilotoRepository extends JpaRepository<Piloto, Long> {
-    //Spring Data
-    Piloto findByLogin(String login);
-
+    Piloto findByBreve(String breve);
+    void deleteByBreve(String breve);
 }

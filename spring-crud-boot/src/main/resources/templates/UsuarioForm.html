@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/admin/salvar" method="POST" th:object="${admin}" enctype="multipart/form-data" >
+
+
+    <input type="hidden" th:field="*{id}">
+    Username: <input type="text" th:field="*{username}"> <br>
+    Senha: <input type="password" th:field="*{password}"> <br>
+
+    <input type="submit" value="Cadastrar">
+
+</form>
+</body>
+</html>

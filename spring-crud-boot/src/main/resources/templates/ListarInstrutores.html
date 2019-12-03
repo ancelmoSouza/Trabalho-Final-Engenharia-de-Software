@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/aluno.css" type="text/css">
+</head>
+<body class="ini">
+
+<div id="topo">
+    <div id="A">
+
+        <img src="/images/A.jpg" width="180px" height="200px">
+        <br>
+        <br>
+    </div>
+
+    <div id="usuario">
+        <ul>
+            <li>
+                <a th:href="@{/admin/home}">Home</a>
+            </li>
+            <li>
+                <a th:href="@{/aluno/form}">Cadastrar alunos</a>
+
+            </li>
+            <li>
+                <a th:href="@{/admin/listarAlunos}">Visualizar Alunos</a>
+
+            </li>
+            <li>
+                <a th:href="@{/turma/form} ">Cadastrar turmas</a>
+
+            </li>
+            <li>
+                <a th:href="@{/admin/listarTurmas}">Vizualizar Turmas</a>
+            </li>
+            <li>
+                <a th:href="@{/instrutor/form}">Cadastrar Instrutores  </a>
+            </li>
+
+            <li>
+                <a th:href="@{/piloto/form}">Cadastrar Pilotos</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/listarPilotos}">Visualizar Pilotos</a>
+            </li>
+
+            <li>
+                <a href="/logout">sair</a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col"> Nome </th>
+        <th scope="col"> Matricula </th>
+        <th scope="col"> Curso </th>
+        <th scope="col"> Instituição </th>
+        <th scope="col"> Data de Obtenção do Brevê </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="instrutor : ${listaInstrutores}">
+        <td></td>
+        <td th:text="${instrutor.nome}"></td>
+        <td th:text="${instrutor.matricula}"></td>
+        <td th:text="${instrutor.curso}"></td>
+        <td th:text="${instrutor.instituicao}"></td>
+        <td th:text="${instrutor.dataObtencao}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

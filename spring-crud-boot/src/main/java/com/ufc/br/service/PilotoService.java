@@ -14,23 +14,19 @@ public class PilotoService {
     private PilotoRepository pilotoRepository;
 
     public void save(Piloto piloto){
-        this.pilotoRepository.save(piloto);
+        pilotoRepository.save(piloto);
+    }
+
+    public void delete(String breve){
+        pilotoRepository.deleteByBreve(breve);
     }
 
     public List<Piloto> listarPilotos(){
-        return this.pilotoRepository.findAll();
+        return pilotoRepository.findAll();
     }
 
-    public Piloto findById(Long id){
-        return this.pilotoRepository.getOne(id);
-    }
-
-    public Piloto findByBreve(String login){
-        return this.pilotoRepository.findByLogin(login);
-    }
-
-    public void delete(Long id){
-        this.pilotoRepository.deleteById(id);
+    public Piloto findByBreve(String breve){
+        return pilotoRepository.findByBreve(breve);
     }
 
 

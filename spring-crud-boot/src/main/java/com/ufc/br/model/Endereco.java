@@ -5,6 +5,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,9 @@ public class Endereco {
 
     // --------------------------------- Construtor, Getter's e Setter's ---------------------------- //
 
-    public Endereco(){}
+    public Endereco(){
+        this.alunos = new ArrayList<Aluno>();
+    }
 
     public Endereco(String bairro, String rua, int numero, String complemento, List<Aluno> alunos) {
         this.bairro = bairro;

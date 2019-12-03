@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/aluno.css" type="text/css">
+</head>
+<body class="ini">
+<div id="topo">
+    <div id="A">
+
+        <img src="/images/A.jpg" width="180px" height="200px">
+        <br>
+        <br>
+    </div>
+
+    <div id="usuario">
+        <ul>
+            <li>
+                <a th:href="@{/turma/listarTurmas}">Home</a>
+
+            </li>
+            <li>
+                <a href="#freq ">Frequencia</a>
+
+            </li>
+            <li>
+                <a href="#rend">Rendimento</a>
+            </li>
+            <li>
+                <a href="#rela">Relatorios</a>
+            </li>
+            <li>
+                <a th:href="@{/aluno/perfil}">Perfil</a>
+            </li>
+
+            <li>
+                <a href="/logout">Sair</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+</div>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col">Código</th>
+        <th scope="col"> Instrutor </th>
+        <th scope="col"> Piloto </th>
+        <th scope="col"> Cap. Máxima </th>
+        <th scope="col"> Semestre </th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="turma : ${listaDeTurmas}">
+        <td></td>
+        <td th:text="${turma.id}"></td>
+        <td th:text="${turma.instrutor.nome}"></td>
+        <td th:text="${turma.piloto.nome}"></td>
+        <td th:text="${turma.qtdMax}"></td>
+        <td th:text="${turma.semestre}"></td>
+
+        <td>
+            <a th:href="@{/turma/concluir/{id}(id = ${turma.id})}">
+                <button type="button" class="btn btn-danger">Realizar Matricula</button>
+            </a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

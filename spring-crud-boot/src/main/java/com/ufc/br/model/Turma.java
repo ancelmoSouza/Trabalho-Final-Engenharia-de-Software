@@ -12,8 +12,6 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String nome;
-
     private int qtdMax; // Capacidade máxima de alunos da turma;
     private int currentAlunos = 0; // Alunos matriculados efetivamente
 
@@ -21,16 +19,19 @@ public class Turma {
 
     private String semestre;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_instrutor")
     private Instrutor instrutor;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_piloto")
     private Piloto piloto;
 
     @ManyToMany(mappedBy = "turmas")
-    private List<Aluno> alunos = new ArrayList<Aluno>();
+    private List<Aluno> alunos;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "turma")
+    private List<Frequencia> frequencia;
 
 
     // -------------------------------------- Construtor, Getter's e Setter's ----------------------------------------- //
@@ -38,11 +39,13 @@ public class Turma {
     public Turma(){
         this.currentAlunos = 0;
         alunos = new ArrayList<Aluno>();
+        frequencia = new ArrayList<Frequencia>();
+        piloto = new Piloto();
+        instrutor = new Instrutor();
         this.status = false;
     }
 
-    public Turma(String nome, int qtdMax, int currentAlunos, boolean status, String semestre, Instrutor instrutor, Piloto piloto, List<Aluno> alunos) {
-        this.nome = nome;
+    public Turma(int qtdMax, int currentAlunos, boolean status, String semestre, Instrutor instrutor, Piloto piloto, List<Aluno> alunos, List<Frequencia> frequencia) {
         this.qtdMax = qtdMax;
         this.currentAlunos = currentAlunos;
         this.status = status;
@@ -50,6 +53,7 @@ public class Turma {
         this.instrutor = instrutor;
         this.piloto = piloto;
         this.alunos = alunos;
+        this.frequencia = frequencia;
     }
 
     public Long getId() {
@@ -58,14 +62,6 @@ public class Turma {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getQtdMax() {
@@ -122,5 +118,13 @@ public class Turma {
 
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
+    }
+
+    public List<Frequencia> getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(List<Frequencia> frequencia) {
+        this.frequencia = frequencia;
     }
 }

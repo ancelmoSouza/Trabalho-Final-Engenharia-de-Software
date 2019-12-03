@@ -1,0 +1,55 @@
+.ini{
+    text-align: center;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    padding: 50px;
+    display: table;
+    background: #1b1a1f;
+}
+
+.text-center{
+    width: 600px;
+    max-width: 330px;
+    padding: 9.9px;
+    margin: auto;
+    background: #1b1a1f;
+}
+.imgA{
+    width: 228px;
+    margin: auto;
+}
+
+.titlle{
+    color: #15afc4;
+}
+
+p{
+    color: #15afc4;
+}
+form{
+    background: #212529;
+    border: 1px;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    display: table;
+
+}
+
+.submit{
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 3px;
+    width: 90px;
+    height: 35px;
+}
+.limpar{
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 3px;
+    width: 90px;
+    height: 35px;
+}
+ 

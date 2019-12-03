@@ -3,21 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/adm.css">
 </head>
 <body>
 
-<form action="/piloto/salvar" method="POST" th:object="${piloto}" enctype="multipart/form-data">
-    <input type="hidden" th:field="*{id}">
+<div id="topo">
+    <div id="A">
 
-    Nome: <input type="text" th:field="*{nome}"> <br>
-    Número de Beve: <input type="text" th:field="*{login}"> <br>
-    Senha: <input type="password" th:field="*{password}">
+        <img src="/images/A.jpg" width="180px" height="200px">
+        <br>
+        <br>
+    </div>
 
-    <br>
+    <div id="usuario">
+        <ul>
+            <li>
+                <a th:href="@{/aluno/form}">Cadastrar alunos</a>
 
-    <input type="submit" value="Cadastrar">
+            </li>
+            <li>
+                <a th:href="@{/admin/listarAlunos}">Visualizar Alunos</a>
 
-</form>
+            </li>
+            <li>
+                <a th:href="@{/turma/form} ">Cadastrar turmas</a>
+
+            </li>
+            <li>
+                <a th:href="@{/admin/listarTurmas}">Vizualizar Turmas</a>
+            </li>
+            <li>
+                <a th:href="@{/instrutor/form}">Cadastrar Instrutores  </a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/listarInstrutores}">Vizualizar Instrutores</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/listarPilotos}">Visualizar Pilotos</a>
+            </li>
+
+            <li>
+                <a href="/logout">sair</a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="container-md">
+    <form action="/piloto/salvar" method="POST" th:object="${piloto}" enctype="multipart/form-data">
+
+        Nome: <input type="text" class="form-control" th:field="*{nome}"> <br>
+        Breve: <input type="text" class="form-control" th:field="*{breve}"> <br>
+        Senha: <input type="password" class="form-control" th:field="*{usuario.password}">
+
+        <br>
+
+        <input type="submit" class="btn btn-primary" value="Cadastrar">
+
+    </form>
+</div>
 
 </body>
 </html>

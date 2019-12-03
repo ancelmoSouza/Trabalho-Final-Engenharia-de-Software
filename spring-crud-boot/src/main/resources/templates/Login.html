@@ -1,18 +1,73 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+
+<!--        Login: <input type="text" id="username" name="username"> <br>-->
+<!--        Senha: <input type="password" id="password" name="password"> <br>-->
+
+<!--        <input type="submit" value="Login">-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/paginainicial.css" type="text/css">
+    <title>AERO CLUBE</title>
+
 </head>
-<body>
+<body class="ini">
 
-    <form  action="/login/logar" method="POST" th:object="${user}" enctype="multipart/form-data">
+<form class="text-center" method="POST" enctype="multipart/form-data">
+    <img  src="/images/A.jpg" class="imgA" >
+    <h1 class="titlle"> Aero Clube</h1>
+    <p>Login:</p>
+    <input  id="username" name="username" type="text" size="40" placeholder="matricula">
+    <br>
+    <br>
+    <p>password:</p>
+    <input  id="password" name="password" type="password" size="40" placeholder="*********">
+    <br>
+    <br>
+    <p> Option</p>
 
-        Login: <input type="text" th:field="*{login}"> <br>
-        Senha: <input type="password" th:field="*{password}"> <br>
+    <select class="select">
 
-        <input type="submit" value="Login">
-    </form>
+        <option selected>Select a Option</option>
+
+        <a href="../ES-daDepressao/aluno.html"> <option value="1">Aluno</option></a>
+        <option value="2"><a href="../ES-daDepressao/instrutor.html"></a> Instrutor</option>
+        <option value="3"><a href="../ES-daDepressao/piloto.html"></a> Piloto</option>
+        <option value="4"><a href="../ES-daDepressao/adm.html"></a> Administrador</option>
+    </select>
+    <br>
+    <br>
+
+    <button  class="submit" type="submit"  >Login</button>
+    <input  class="limpar" type="reset" value="cancelar">
+    <br>
+
+
+</form>
+
+
+
+
+
+
 </body>
 </html>

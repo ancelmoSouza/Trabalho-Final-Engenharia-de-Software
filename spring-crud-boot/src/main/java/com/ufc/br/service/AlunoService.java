@@ -28,8 +28,8 @@ public class AlunoService {
         return alunoRepository.getOne(id);
     }
 
-    public Aluno findByLogin(String login){
-        return alunoRepository.findByLogin(login);
+    public Aluno findByMatricula(String matricula){
+        return alunoRepository.findByMatricula(matricula);
     }
 
     public void delete(Long id){

@@ -3,20 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/adm.css">
 </head>
 <body>
 
-<form action="/aluno/salvar" method="POST" th:object="${aluno}" enctype="multipart/form-data" >
-    <input type="hidden" th:field="*{id}">
+<div id="topo">
 
-    Nome: <input type="text" th:field="*{nome}"> <br>
-    Matricula: <input type="text" th:field="*{login}"> <br>
-    Senha <input type="password" th:field="*{password}">
-    <br>
+    <div id="usuario">
+        <ul>
 
-    <input type="submit" value="Cadastrar">
+            <li>
+                <a th:href="@{/admin/listarAlunos}">Visualizar Alunos</a>
 
-</form>
+            </li>
+            <li>
+                <a th:href="@{/turma/form} ">Cadastrar turmas</a>
+
+            </li>
+            <li>
+                <a th:href="@{/admin/listarTurmas}">Vizualizar Turmas</a>
+            </li>
+            <li>
+                <a th:href="@{/instrutor/form}">Cadastrar Instrutores  </a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/listarInstrutores}">Vizualizar Instrutores</a>
+            </li>
+
+            <li>
+                <a th:href="@{/piloto/form}">Cadastrar Pilotos</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/listarPilotos}">Visualizar Pilotos</a>
+            </li>
+
+            <li>
+                <a href="/logout">sair</a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="container-md">
+    <form action="/aluno/salvar" method="POST" th:object="${aluno}" enctype="multipart/form-data" >
+
+        Nome: <input type="text" class="form-control" th:field="*{nome}"> <br>
+        Matricula: <input type="text"  class="form-control" th:field="*{matricula}"> <br>
+        Senha: <input type="password" class="form-control" th:field="*{usuario.password}"> <br>
+        Bairro: <input type="text" class="form-control" th:field="*{endereco.bairro}"> <br>
+        Rua: <input type="text" class="form-control" th:field="*{endereco.rua}"> <br>
+        Numero: <input type="number" class="form-control" th:field="*{endereco.numero}"> <br>
+        Complemento: <input type="text" class="form-control" th:field="*{endereco.complemento}">
+
+        <input type="submit"  class="btn btn-primary" value="Cadastrar">
+
+    </form>
+</div>
 
 </body>
 </html>

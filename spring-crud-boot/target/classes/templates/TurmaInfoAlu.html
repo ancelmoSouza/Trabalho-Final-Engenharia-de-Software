@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/aluno.css" type="text/css">
+    <title>ALuno</title>
+
+</head>
+<body class="ini">
+<div id="topo">
+    <div id="A">
+
+        <img src="/images/A.jpg" width="180px" height="200px">
+        <br>
+        <br>
+    </div>
+
+    <div id="usuario">
+        <ul>
+            <li>
+                <a th:href="@{/turma/listarTurmas}">Home</a>
+
+            </li>
+            <li>
+                <a href="#histo">Historico</a>
+
+            </li>
+            <li>
+                <a href="#freq ">Frequencia</a>
+
+            </li>
+            <li>
+                <a href="#rend">Rendimento</a>
+            </li>
+            <li>
+                <a href="#rela">Relatorios</a>
+            </li>
+            <li>
+                <a th:href="@{/aluno/perfil}">Perfil</a>
+            </li>
+
+
+            <li>
+                <a th:href="@{/turma/listarTurmas1}">Solicitar Matricula</a>
+            </li>
+
+            <li>
+                <a href="/logout">Sair</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+</div>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+    <tr>
+
+        <th> Dados da Turma</th>
+    </tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <table class="table table-striped table-dark">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col"> N° Atual de Alunos</th>
+                    <th scope="col"> Semestre </th>
+                    <th scope="col"> Instrutor </th>
+                    <th scope="col"> Piloto </th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                <tr th:object="${turma}">
+                    <td></td>
+                    <td th:text="${turma.currentAlunos}"></td>
+                    <td th:text="${turma.semestre}"></td>
+                    <td th:text="${turma.instrutor.nome}"></td>
+                    <td th:text="${turma.piloto.nome}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+    <tr>
+        <th> Alunos </th>
+    </tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <table class="table table-striped table-dark">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col"> Matricula </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aluno: ${turma.alunos}">
+                    <td></td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.matricula}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+</body>
+
+</html>
